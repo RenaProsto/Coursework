@@ -1,6 +1,4 @@
 public class Main {
-    static int id = 0;
-
     public static void main(String[] args) {
         Employee[] storage = new Employee[10];
 
@@ -41,10 +39,9 @@ public class Main {
         printFullName(storage);
     }
     private static void printListEmploee(Employee[] storage) {
-        int id = 0;
         System.out.println("Список всех сотрудников : ");
         for (int i = 0; i < storage.length; i++) {
-            System.out.println(++id + ") " + storage[i]);
+            System.out.println(storage[i]);
         }
     }
 

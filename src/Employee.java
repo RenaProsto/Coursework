@@ -7,14 +7,22 @@ public class Employee {
     private int department;
     private int salary;
 
-    public int id;
+    static int idCounter = 0;
+
+    private int id;
 
     public Employee(String surname, String name, String patronymic, int department, int salary) {
+        this.id = idCounter;
+        ++idCounter;
         this.department = department;
         this.salary = salary;
         this.name = name;
         this.surname = surname;
         this.patronymic = patronymic;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 
@@ -54,6 +62,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Работник :" +
+                " №" + ++id + ")" +
                 " Имя - " + name + "."+
                 " Фамилия - " + surname +"."+
                 " Отчество - " + patronymic +"."+
