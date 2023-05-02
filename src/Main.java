@@ -49,7 +49,9 @@ public class Main {
         System.out.print("Затраты на зарплату в месяц : ");
         int salaryCosts = 0;
         for (Employee i : storage){
-            salaryCosts = salaryCosts + i.getSalary();
+            if (i != null) {
+                salaryCosts = salaryCosts + i.getSalary();
+            }
         }
         System.out.println(salaryCosts);
     }
@@ -58,8 +60,10 @@ public class Main {
         System.out.print("Максимальная зарплата : ");
         int maxSalary = 0;
         for (Employee i : storage) {
-            if (i.getSalary() > maxSalary) {
-                maxSalary = i.getSalary();
+            if (i != null) {
+                if (i.getSalary() > maxSalary) {
+                    maxSalary = i.getSalary();
+                }
             }
         }
         System.out.println(maxSalary);
@@ -68,8 +72,10 @@ public class Main {
         System.out.print("Минимальная зарплата : ");
         int minSalary = 500_000;
         for (Employee i : storage) {
-            if (i.getSalary() < minSalary) {
-                minSalary = i.getSalary();
+            if (i != null) {
+                if (i.getSalary() < minSalary) {
+                    minSalary = i.getSalary();
+                }
             }
         }
         System.out.println(minSalary);
@@ -78,17 +84,21 @@ public class Main {
         System.out.print("Средняя зп : ");
         int averageSalaryValue = 0;
         int salaryCosts = 0;
-        for (Employee i : storage){
-            salaryCosts = salaryCosts + i.getSalary();
-            averageSalaryValue = salaryCosts / storage.length;
+        for (Employee i : storage) {
+            if (i != null) {
+                salaryCosts = salaryCosts + i.getSalary();
+                averageSalaryValue = salaryCosts / storage.length;
+            }
         }
         System.out.println(averageSalaryValue);
     }
     private static void printFullName(Employee[] storage){
         System.out.print("ФИО сотрудников : ");
         int id = 0;
-        for (Employee i : storage){
-            System.out.print( ++id + ") " + i.getSurname() + " " + i.getName() + " " + i.getPatronymic() + ". ");
+        for (Employee i : storage) {
+            if (i != null) {
+                System.out.print(++id + ") " + i.getSurname() + " " + i.getName() + " " + i.getPatronymic() + ". ");
+            }
         }
     }
 }
